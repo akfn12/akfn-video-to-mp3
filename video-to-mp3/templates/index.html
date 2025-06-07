@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>동영상 → MP3 변환기</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    h1 {
+      margin-bottom: 1rem;
+    }
+    input[type=file], input[type=url] {
+      margin: 1rem 0;
+      padding: 0.5rem;
+      width: 100%;
+      max-width: 400px;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      margin: 0.5rem;
+    }
+    button:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>동영상 → MP3 변환기</h1>
+
+    <form action="/upload" method="post" enctype="multipart/form-data">
+      <h3>📁 파일 업로드 방식</h3>
+      <input type="file" name="video" accept="video/*" required><br>
+      <button type="submit">MP3로 변환</button>
+    </form>
+
+    <hr>
+
+    <form action="/download_link" method="post">
+      <h3>🔗 YouTube 링크 방식</h3>
+      <input type="url" name="video_url" placeholder="https://www.youtube.com/..." required><br>
+      <button type="submit">링크로 MP3 추출</button>
+    </form>
+  </div>
+</body>
+</html>
